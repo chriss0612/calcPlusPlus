@@ -35,3 +35,6 @@
 calcPlusPlus/.vs/calcPlusPlus/v15/*
 calcPlusPlus/calcPlusPlus/calcPlusPlus*
 calcPlusPlus/calcPlusPlus.sln
+*.lastbuildstate
+calcPlusPlus/calcPlusPlus/Debug/*
+calcPlusPlus/Debug/*
