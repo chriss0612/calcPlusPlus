@@ -3,47 +3,42 @@
 
 class number
 {
+public:
 	friend number operator+(number, number);
 };
 
 class integer : public number
 {
-    public:
-        int value;
+public:
+    int value;
 };
 
 class mathExpression
 {
-    public:
-        virtual number calculate() = 0;
+public:
+    virtual number calculate() = 0;
 };
 
 class ZeroMemberOperation : public mathExpression
 {
-    public:
-        virtual number calculate() = 0;
+public:
+    virtual number calculate() = 0;
 };
 
 class OneMemberOperation : public mathExpression
 {
-protected:
 	mathExpression* mathexpression;
-private:
-	virtual number calculate() = 0;
-{
-    public:
-        mathExpression* mathexpression;
-
-        virtual number calculate() = 0;
+public:
+    virtual number calculate() = 0;
 };
 
 class TwoMemberOperation : public mathExpression
 {
-    public:
-        mathExpression* mathexpression1;
-        mathExpression* mathexpression2;
-
-        virtual number calculate() = 0;
+protected:
+    mathExpression* mathexpression1;
+    mathExpression* mathexpression2;
+public:
+    virtual number calculate() = 0;
 };
 
 class numberExpression : public ZeroMemberOperation
@@ -71,9 +66,4 @@ class Addition : public TwoMemberOperation
 	{
 		return mathexpression1->calculate() + mathexpression2->calculate();
 	}
-};
-    public:
-        number value;
-
-        virtual number calculate() = 0;
 };
