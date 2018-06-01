@@ -5,26 +5,28 @@ using namespace std;
 class complex
 {
 private:
-	float re, im; // Datenelemente
+	float re, im; // Data Elements
 public:
-	complex(float rea, float ima) :re(rea), im(ima) {}; // Konstruktoren
+	complex(float rea, float ima) :re(rea), im(ima) {}; //Constructors
 	complex() :re(0), im(0) {};
 	complex(float rea) :re(rea), im(0) {};
-	float real() { return re; }; // Realteil
-	float imag() { return im; }; // Imaginärteil
-	float betrag(); // Betrag
-	float phase(); // Phase
-	complex conj() { return complex(re, -im); }; // konjugiert complex
-	void polar(float betrag, float phase); // Polar zu Komponenten
-	complex& operator=(const float& as);
-	complex operator+=(complex &); // überladene Operatoren
-	complex operator-=(complex &);
+	float real() { return re; }; //Real
+	float imag() { return im; }; //Imaginary
+	float abs(); // Absolute value
+	float phase(); // phase
+	complex conj() { return complex(re, -im); }; // conjugate-complex
+	void polar(float betrag, float phase); // From polar
+
 	bool fromString(string);
-	friend complex operator+(complex, complex); // überladene Operatoren
-	friend complex operator-(complex, complex); // mit zwei oder mehreren Parametern
+	
+	complex& operator=(const float& as); //Operators
+	complex operator+=(complex &);
+	complex operator-=(complex &);
+	friend complex operator+(complex, complex);
+	friend complex operator-(complex, complex);
 	friend complex operator*(complex, float);
-	friend complex operator*(complex, complex); // können nur als friend Funktionen
-	friend complex operator/(complex, complex); // ausgeführt werden !
+	friend complex operator*(complex, complex);
+	friend complex operator/(complex, complex);
 	friend complex operator/(complex, float);
 	friend bool operator==(complex &, complex &);
 	friend bool operator!=(complex &, complex &);

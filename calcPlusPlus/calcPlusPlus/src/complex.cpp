@@ -1,7 +1,7 @@
 #include "complex.h"
 #include <math.h>
 
-float complex::betrag()
+float complex::abs()
 {
 	return sqrt(re*re + im * im);
 }
