@@ -2,4 +2,4 @@
 #include <string>
 #include "complex.h"
 
-void parse(string flags, char* unparsed); //
+void parse(string flags, string unparsed);

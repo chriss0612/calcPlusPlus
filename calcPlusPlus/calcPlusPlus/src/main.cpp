@@ -1,11 +1,8 @@
 #include <iostream>
 #include <string>
-#include <string.h>
 #include <windows.h>
 
 #include "calcParser.h"
-
-#define MAX_CHAR 1024
 
 using namespace std;
 
@@ -13,7 +10,6 @@ int main(int argc, char **argv)
 {
 	string flags="";
 	string parserString="";
-	char parserCharArr[MAX_CHAR];
 
 	//Inital syntax check
 	if (argc < 2)
@@ -57,9 +53,8 @@ int main(int argc, char **argv)
 	{
 		parserString += argv[i];
 	}
-	strcpy(parserCharArr, parserString.c_str());
 
-	parse(flags, parserCharArr);
+	parse(flags, parserString);
 	/// **TODO Calculate**
 	/// **TODO output**
 	return EXIT_SUCCESS;
