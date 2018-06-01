@@ -1,12 +1,20 @@
 #pragma once
 
 
-class numberExpression;
+class number
+{
+
+};
+
+class integer : public number
+{
+    public:
+        int value;
+};
 
 class mathExpression
 {
     public:
-
         virtual number calculate() = 0;
 };
 
@@ -17,16 +25,7 @@ class ZeroMemberOperation : public mathExpression
 
 class numberExpression : public ZeroMemberOperation
 {
+    number value;
+
 	virtual number calculate();
-};
-
-class number
-{
-
-};
-
-class integer : public number
-{
-    public:
-        int value;
 };

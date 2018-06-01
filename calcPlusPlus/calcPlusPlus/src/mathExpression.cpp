@@ -1,6 +1,6 @@
 #include "mathExpression.h"
 
-integer integer::calculate()
+number numberExpression::calculate()
 {
     return value;
 }
