@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
 
+#include "calcParser.h"
+
 using namespace std;
 
 void main(char argc, char **argv)
 {
-	string flags, ParserArg;
+	string flags="", parserArg="";
 
 	//Inital syntax check
 	if (argc < 2)
@@ -34,14 +36,23 @@ void main(char argc, char **argv)
 			break;
 		}
 	}
-	/// **TODO Flag Handeling / Checking**
+	if (flags.find('h') != std::string::npos) //check for help flag
+	{
+		/// **TODO Help**
+		cout << "Help not implemented (jet)" << endl;
+
+		return; // if help was called noting else should be done
+	}
+
+	/// **TODO Flag Checking**
 
 	//Constructing the string for the parser
 	for (int i = flagEnd; i < argc; i++)
 	{
-		ParserArg += argv[i];
+		parserArg += argv[i];
 	}
 
-	/// **TODO Send to parser**
+	parse(flags, parserArg);
+	/// **TODO Calculate**
 	/// **TODO output**
 }
