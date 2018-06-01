@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <string.h>
 #include <windows.h>
 
 #include "calcParser.h"
@@ -38,11 +39,10 @@ int main(int argc, char **argv)
 			break;
 		}
 	}
-	if (flags.find('h') != std::string::npos) //check for help flag
+	if (flags.find('h') != std::string::npos || strchr(argv[argc-1],'h')) //check for help flag
 	{
 		/// **TODO Help**
 		cout << "Help not implemented (jet)" << endl;
-
 		return EXIT_FAILURE; // if help was called noting else should be done
 	}
 
@@ -57,5 +57,6 @@ int main(int argc, char **argv)
 	parse(flags, parserString);
 	/// **TODO Calculate**
 	/// **TODO output**
+
 	return EXIT_SUCCESS;
 }
