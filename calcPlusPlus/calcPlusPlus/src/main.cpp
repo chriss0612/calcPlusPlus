@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 			break;
 		}
 	}
-	if (flags.find('h') != std::string::npos || strchr(argv[argc-1],'h')) //check for help flag
+	if (flags.find('h') != std::string::npos ||strchr(argv[argc-1],'h')) //check for help flag
 	{
 		/// **TODO Help**
 		cout << "Help not implemented (jet)" << endl;

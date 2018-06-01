@@ -27,5 +27,19 @@ class numberExpression : public ZeroMemberOperation
 {
     number value;
 
-	virtual number calculate();
+	virtual number calculate() = 0;
+};
+class OneMemberOperation : public mathExpression
+{
+	mathExpression* mathexpression;
+
+	virtual number calculate() = 0;
+};
+
+class TwoMemberOperation : public mathExpression
+{
+	mathExpression* mathexpression1;
+	mathExpression* mathexpression2;
+
+	virtual number calculate() = 0;
 };
