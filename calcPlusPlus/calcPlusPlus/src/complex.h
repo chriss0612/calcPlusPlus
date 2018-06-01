@@ -16,8 +16,6 @@ public:
 	float phase(); // phase
 	complex conj() { return complex(re, -im); }; // conjugate-complex
 	void polar(float betrag, float phase); // From polar
-
-	bool fromString(string);
 	
 	complex& operator=(const float& as); //Operators
 	complex operator+=(complex &);

@@ -4,7 +4,10 @@
 class number
 {
 public:
-	friend number operator+(number, number);
+	friend number operator+(number, number);  /// **TODO Add these funktions **
+	friend number operator-(number, number);
+	friend number operator*(number, number);
+	friend number operator/(number, number);
 };
 
 class integer : public number
@@ -65,5 +68,31 @@ class Addition : public TwoMemberOperation
 	virtual number calculate()
 	{
 		return mathexpression1->calculate() + mathexpression2->calculate();
+	}
+};
+class Subtraction : public TwoMemberOperation
+{
+
+	virtual number calculate()
+	{
+		return mathexpression1->calculate() - mathexpression2->calculate();
+	}
+};
+
+class Multiplication : public TwoMemberOperation
+{
+
+	virtual number calculate()
+	{
+		return mathexpression1->calculate() * mathexpression2->calculate();
+	}
+};
+
+class Division : public TwoMemberOperation
+{
+
+	virtual number calculate()
+	{
+		return mathexpression1->calculate() / mathexpression2->calculate();
 	}
 };
