@@ -1,30 +1,32 @@
 #pragma once
 
-#define MAX_CHAR 1024
 
 class numberExpression;
 
 class mathExpression
 {
     public:
-        char syntax[MAX_CHAR];
 
-        virtual numberExpression calculate() = 0;
+        virtual number calculate() = 0;
 };
 
-class ZeroMemberOperation : mathExpression
+class ZeroMemberOperation : public mathExpression
+{
+	virtual number calculate() = 0;
+};
+
+class numberExpression : public ZeroMemberOperation
+{
+	virtual number calculate();
+};
+
+class number
 {
 
 };
 
-class numberExpression : ZeroMemberOperation
-{
-
-};
-
-class integer : numberExpression
+class integer : public number
 {
     public:
         int value;
-        string numberSystem;
 };
