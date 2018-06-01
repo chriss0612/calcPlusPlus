@@ -36,12 +36,6 @@ complex complex::operator-=(complex &ko)
 	return *this;
 }
 
-bool complex::fromString(string s)
-{
-	re = ::atof(s.c_str());
-	return false;
-}
-
 complex operator+(complex k1, complex k2)
 {
 	return complex(k1.re + k2.re, k1.im + k2.im);
@@ -87,7 +81,7 @@ bool operator!=(complex &k1, complex &k2)
 ostream & operator<<(ostream & output, const complex & k)
 {
 	output << k.re << '+' << k.im << 'i';
-	return output;	
+	return output;
 }
 
 istream & operator>>(istream & input, complex & k)

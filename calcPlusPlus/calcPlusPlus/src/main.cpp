@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <string.h>
+#include <windows.h>
 
 #include "calcParser.h"
 
@@ -8,11 +9,11 @@
 
 using namespace std;
 
-void main(char argc, char **argv)
+int main(int argc, char **argv)
 {
 	string flags="";
 	string parserString="";
-	char[MAX_CHAR] parserCharArr;
+	char parserCharArr[MAX_CHAR];
 
 	//Inital syntax check
 	if (argc < 2)
@@ -46,7 +47,7 @@ void main(char argc, char **argv)
 		/// **TODO Help**
 		cout << "Help not implemented (jet)" << endl;
 
-		return; // if help was called noting else should be done
+		return EXIT_FAILURE; // if help was called noting else should be done
 	}
 
 	/// **TODO Flag Checking**
@@ -61,4 +62,5 @@ void main(char argc, char **argv)
 	parse(flags, parserCharArr);
 	/// **TODO Calculate**
 	/// **TODO output**
+	return EXIT_SUCCESS;
 }
