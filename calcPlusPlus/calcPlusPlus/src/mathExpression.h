@@ -20,7 +20,8 @@ class mathExpression
 
 class ZeroMemberOperation : public mathExpression
 {
-	virtual number calculate() = 0;
+    public:
+        virtual number calculate() = 0;
 };
 
 class OneMemberOperation : public mathExpression
@@ -29,9 +30,23 @@ protected:
 	mathExpression* mathexpression;
 private:
 	virtual number calculate() = 0;
+{
+    public:
+        mathExpression* mathexpression;
+
+        virtual number calculate() = 0;
 };
 
 class TwoMemberOperation : public mathExpression
+{
+    public:
+        mathExpression* mathexpression1;
+        mathExpression* mathexpression2;
+
+        virtual number calculate() = 0;
+};
+
+class numberExpression : public ZeroMemberOperation
 {
 protected:
 	mathExpression* mathexpression1;
@@ -56,4 +71,9 @@ class Addition : public TwoMemberOperation
 	{
 		return mathexpression1->calculate() + mathexpression2->calculate();
 	}
+};
+    public:
+        number value;
+
+        virtual number calculate() = 0;
 };
