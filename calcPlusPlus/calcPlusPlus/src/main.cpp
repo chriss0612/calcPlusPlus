@@ -1,13 +1,18 @@
 #include <iostream>
 #include <string>
+#include <string.h>
 
 #include "calcParser.h"
+
+#define MAX_CHAR 1024
 
 using namespace std;
 
 void main(char argc, char **argv)
 {
-	string flags="", parserArg="";
+	string flags="";
+	string parserString="";
+	char[MAX_CHAR] parserCharArr;
 
 	//Inital syntax check
 	if (argc < 2)
@@ -30,7 +35,7 @@ void main(char argc, char **argv)
 				pos++;
 			}
 		}
-		else // íf an argument isnt a flag everything after will also not be a flag 
+		else // íf an argument isnt a flag everything after will also not be a flag
 		{
 			flagEnd = i;
 			break;
@@ -49,10 +54,11 @@ void main(char argc, char **argv)
 	//Constructing the string for the parser
 	for (int i = flagEnd; i < argc; i++)
 	{
-		parserArg += argv[i];
+		parserString += argv[i];
 	}
+	strcpy(parserCharArr, parserString.c_str());
 
-	parse(flags, parserArg);
+	parse(flags, parserCharArr);
 	/// **TODO Calculate**
 	/// **TODO output**
 }
