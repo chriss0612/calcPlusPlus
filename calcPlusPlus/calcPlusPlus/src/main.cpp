@@ -3,9 +3,11 @@
 #include <string.h>
 #include <windows.h>
 
-#include "calcParser.h"
 
 using namespace std;
+
+
+void parse(string flags, string unparsed);
 
 int main(int argc, char **argv)
 {
