@@ -35,13 +35,13 @@ int main(int argc, char **argv)
 				pos++;
 			}
 		}
-		else // íf an argument isnt a flag everything after will also not be a flag
+		else // if an argument isnt a flag everything after will also not be a flag
 		{
 			flagEnd = i;
 			break;
 		}
 	}
-	if (flags.find('h') != std::string::npos ||strchr(argv[argc-1],'h')) //check for help flag
+	if (flags.find('h') != std::string::npos || strchr(argv[argc-1],'h')) //check for help flag
 	{
 		/// **TODO Help**
 		cout << "Help not implemented (jet)" << endl;
