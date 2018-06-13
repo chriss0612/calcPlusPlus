@@ -7,10 +7,10 @@ class complex
 private:
 	float re, im; // Data Elements
 public:
-	complex(float rea, float ima) :re(rea), im(ima) {}; //Constructors
-	complex() :re(0), im(0) {};
-	complex(float rea) :re(rea), im(0) {};
-	complex(int rea) :re((float)rea), im(0) {};
+	complex(float rea, float ima) : re(rea), im(ima) {}; //Constructors
+	complex() : re(0), im(0) {};
+	complex(float rea) : re(rea), im(0) {};
+	complex(int rea) : re((float)rea), im(0) {};
 	float real() { return re; }; //Real
 	float imag() { return im; }; //Imaginary
 	float abs(); // Absolute value

@@ -2,7 +2,7 @@
 #include <string>
 #include <string.h>
 #include <windows.h>
-
+#include "mathExpression.h"
 
 using namespace std;
 
@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 		cout << "Expected at least one argument" << endl;
 		cout << "Usage: " << argv[0] << " [Flags] <string>" << endl;
 		cout << "For Help type: " << argv[0] << " -h" << endl;
+		return EXIT_FAILURE;
 	}
 
 	//Parsing arguments to flags
@@ -45,7 +46,7 @@ int main(int argc, char **argv)
 	{
 		/// **TODO Help**
 		cout << "Help not implemented (jet)" << endl;
-		return EXIT_FAILURE; // if help was called noting else should be done
+		return EXIT_SUCCESS; // if help was called noting else should be done
 	}
 
 	/// **TODO Flag Checking**
@@ -59,6 +60,10 @@ int main(int argc, char **argv)
 	parse(flags, parserString);
 	/// **TODO Calculate**
 	/// **TODO output**
+	//cout << (number(10) + number(complex(100, 30))).toString() << endl;
 
+	mathExpression *me = new Addition(new numberExpression(100), new Multiplication(new numberExpression(complex(3, 20)), new numberExpression(2)));
+	cout << me->calculate().toString() << endl;//*/
+	system("pause");
 	return EXIT_SUCCESS;
 }

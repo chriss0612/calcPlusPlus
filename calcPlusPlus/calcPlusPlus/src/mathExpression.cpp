@@ -19,7 +19,7 @@ if (a.isFloat()) \
 	if (b.isCompex()) \
 		return *a.pfloat OP *b.pcomplex; \
 } \
-if (a.isInt()) \
+if (a.isCompex()) \
 { \
 	if (b.isInt()) \
 		return *a.pcomplex OP *b.pint; \
@@ -30,7 +30,7 @@ if (a.isInt()) \
 }
 
 
-number operator+(number a , number b)
+number operator+(const number& a , const number& b)
 {
 	OPER(+)
 }

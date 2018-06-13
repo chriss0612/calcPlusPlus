@@ -1,11 +1,9 @@
-#include "calcParser.h"
 #include <string.h>
-
 #include <iostream>
 
 void parseRec(char* unparsed, char* flags, uint32_t start, uint32_t end);
 
-void parse(string flags, string unparsed) //Wrapper arround the recursiv parser
+void parse(std::string flags, std::string unparsed) //Wrapper arround the recursiv parser
 {
 	char* unparsedCstr = new char[unparsed.length() + 1];
 	char* flagsCstr = new char[flags.length() + 1];
@@ -22,7 +20,7 @@ void parse(string flags, string unparsed) //Wrapper arround the recursiv parser
 
 void parseRec(char* unparsed, char* flags, uint32_t start, uint32_t end)
 {
-	std::cout << "Unparsed: " << unparsed << endl;
-	std::cout << "Flags: " << flags << endl;
+	std::cout << "Unparsed: " << unparsed << std::endl;
+	std::cout << "Flags: " << flags << std::endl;
 	/// ** TODO Write Parser **
 }

@@ -38,3 +38,5 @@ calcPlusPlus/calcPlusPlus.sln
 *.lastbuildstate
 calcPlusPlus/calcPlusPlus/Debug/*
 calcPlusPlus/Debug/*
+calcPlusPlus/calcPlusPlus/x64/*
+calcPlusPlus/x64/*
