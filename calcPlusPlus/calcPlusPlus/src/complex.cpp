@@ -51,6 +51,11 @@ complex operator*(complex ko, float fl)
 	return complex(ko.re * fl, ko.im * fl);
 }
 
+complex operator*(complex co, int in)
+{
+	return complex(co.re * in, co.im * in);
+}
+
 complex operator*(complex k1, complex k2)
 {
 	return complex(k1.re * k2.re - k1.im * k2.im, k1.re * k2.im + k1.im * k2.re);
@@ -66,6 +71,11 @@ complex operator/(complex k1, complex k2)
 complex operator/(complex ko, float fl)
 {
 	return complex(ko.re/fl,ko.im/fl);
+}
+
+complex operator/(complex co, int in)
+{
+	return complex(co.re / in, co.im / in);
 }
 
 bool operator==(complex &k1, complex &k2)

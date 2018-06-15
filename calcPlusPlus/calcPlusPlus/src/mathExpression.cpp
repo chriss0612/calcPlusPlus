@@ -27,8 +27,11 @@ if (a.isCompex()) \
 		return *a.pcomplex OP *b.pfloat; \
 	if (b.isCompex()) \
 		return *a.pcomplex OP *b.pcomplex; \
-}
+}\
+return number();
 
+
+int mathExpression::count = 0;
 
 number operator+(const number& a , const number& b)
 {
@@ -48,16 +51,6 @@ number operator*(number a, number b)
 number operator/(number a, number b)
 {
 	OPER(/);
-}
-
-number::~number()
-{
-	if (isInt())
-		delete pint;
-	if (isFloat())
-		delete pfloat;
-	if (isCompex())
-		delete pcomplex;
 }
 
 string number::toString()

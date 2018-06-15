@@ -24,9 +24,11 @@ public:
 	friend complex operator+(complex, complex);
 	friend complex operator-(complex, complex);
 	friend complex operator*(complex, float);
+	friend complex operator*(complex, int);
 	friend complex operator*(complex, complex);
 	friend complex operator/(complex, complex);
 	friend complex operator/(complex, float);
+	friend complex operator/(complex, int);
 	friend bool operator==(complex &, complex &);
 	friend bool operator!=(complex &, complex &);
 
