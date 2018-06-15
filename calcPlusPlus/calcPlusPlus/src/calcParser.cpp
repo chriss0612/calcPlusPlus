@@ -76,4 +76,5 @@ int preParse(char argc, char **argv)
 	parse(flags, parserString);
 	/// **TODO Calculate**
 	/// **TODO output**
+	return EXIT_SUCCESS;
 }
