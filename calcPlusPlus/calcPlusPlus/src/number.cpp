@@ -1,5 +1,4 @@
-#include "mathExpression.h"
-
+#include "number.h"
 #define OPER(OP) \
 if (a.isInt())	\
 {	\
@@ -31,7 +30,7 @@ if (a.isCompex()) \
 return number();
 
 
-number operator+(const number& a , const number& b)
+number operator+(const number& a, const number& b)
 {
 	OPER(+)
 }
@@ -48,7 +47,7 @@ number operator*(const number& a, const number& b)
 
 number operator/(const number& a, const number& b)
 {
-	OPER(/);
+	OPER(/ );
 }
 
 string number::toString()
