@@ -53,35 +53,29 @@ public:
 
 	string toString();
 	
-	friend number operator+(const number&, const number&);
-	friend number operator-(number, number);
-	friend number operator*(number, number);
-	friend number operator/(number, number);
 
 	bool isInt() const { return pint != nullptr; }
 	bool isFloat() const { return pfloat != nullptr; }
 	bool isCompex() const { return pcomplex != nullptr; }
+	friend number operator+(const number& a, const number& b);
+	friend number operator-(const number& a, const number& b);
+	friend number operator*(const number& a, const number& b);
+	friend number operator/(const number& a, const number& b);
 };
+
 
 class mathExpression
 {
 public:
-	static int count;
-	mathExpression() { count++; }
+	mathExpression() { }
     virtual number calculate() = 0;
-	virtual ~mathExpression() {
-		count--;
-		cout << "dec mE" << endl; 
-	};
+	virtual ~mathExpression() {	}
 };
 class ZeroMemberOperation : public mathExpression
 {
 public:
     virtual number calculate() = 0;
-	virtual ~ZeroMemberOperation()
-	{
-		cout << "dec ZMO" << endl; 
-	};
+	virtual ~ZeroMemberOperation() { }
 };
 
 class OneMemberOperation : public mathExpression
@@ -89,11 +83,7 @@ class OneMemberOperation : public mathExpression
 	mathExpression* mathexpression;
 public:
     virtual number calculate() = 0;
-	virtual ~OneMemberOperation() 
-	{
-		cout << "dec OMO" << endl;
-		delete mathexpression;
-	};
+	virtual ~OneMemberOperation() { delete mathexpression; };
 };
 
 class TwoMemberOperation : public mathExpression
@@ -102,18 +92,15 @@ protected:
     mathExpression* mathexpression1;
     mathExpression* mathexpression2;
 public:
-	TwoMemberOperation(mathExpression *me1, mathExpression *me2)
-	{
-		cout << "con TMO" << endl;
-		count++;
+	TwoMemberOperation(mathExpression *me1, mathExpression *me2) {
 		this->mathexpression1 = me1;
 		this->mathexpression2 = me2;
 	}
     virtual number calculate() = 0;
 	virtual ~TwoMemberOperation()
 	{
-		cout << "dec TMO" << endl;
-		delete mathexpression1, mathexpression2;
+		delete mathexpression1;
+		delete mathexpression2;
 	}
 };
 
@@ -121,14 +108,8 @@ class numberExpression : public ZeroMemberOperation
 {
 	number value;
 public:
-	numberExpression(number v) : value(v) 
-	{
-		cout << "con nE" << endl;
-	}
+	numberExpression(number v) : value(v) {	}
 	virtual number calculate() { return value; };
-	virtual ~numberExpression() {
-		cout << "dec nE" << endl;
-	}
 };
 
 class Addition : public TwoMemberOperation
@@ -137,61 +118,35 @@ public:
 	Addition(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) { }
 	virtual number calculate()
 	{
-		cout << "con Add" << endl;
 		return mathexpression1->calculate() + mathexpression2->calculate();
-	}
-	virtual ~Addition()
-	{
-		cout << "dec Add" << endl;
 	}
 };
 class Subtraction : public TwoMemberOperation
 {
 public:
-	Subtraction(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) 
-	{
-		cout << "con sub" << endl;
-	}
+	Subtraction(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) { }
 	virtual number calculate()
 	{
 		return mathexpression1->calculate() - mathexpression2->calculate();
-	}
-	virtual ~Subtraction()
-	{
-		cout << "dec sub" << endl;
 	}
 };
 
 class Multiplication : public TwoMemberOperation
 {
 public:
-	Multiplication(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) 
-	{
-		cout << "con Mul" << endl;
-	}
+	Multiplication(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) {}
 	virtual number calculate()
 	{
 		return mathexpression1->calculate() * mathexpression2->calculate();
-	}
-	virtual ~Multiplication()
-	{
-		cout << "dec Mul" << endl;
 	}
 };
 
 class Division : public TwoMemberOperation
 {
 public:
-	Division(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) 
-	{
-		cout << "con Div" << endl;
-	}
+	Division(mathExpression *me1, mathExpression *me2) : TwoMemberOperation(me1, me2) {	}
 	virtual number calculate()
 	{
 		return mathexpression1->calculate() / mathexpression2->calculate();
-	}
-	virtual ~Division()
-	{
-		cout << "dec Div" << endl;
 	}
 };

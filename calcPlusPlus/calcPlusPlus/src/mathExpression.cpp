@@ -31,24 +31,22 @@ if (a.isCompex()) \
 return number();
 
 
-int mathExpression::count = 0;
-
 number operator+(const number& a , const number& b)
 {
 	OPER(+)
 }
 
-number operator-(number a, number b)
+number operator-(const number& a, const number& b)
 {
 	OPER(-)
 }
 
-number operator*(number a, number b)
+number operator*(const number& a, const number& b)
 {
 	OPER(*)
 }
 
-number operator/(number a, number b)
+number operator/(const number& a, const number& b)
 {
 	OPER(/);
 }

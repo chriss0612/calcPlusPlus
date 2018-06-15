@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 {
 	string flags="";
 	string parserString="";
-
+	
 	//Inital syntax check
 	if (argc < 2)
 	{
@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 		cout << "For Help type: " << argv[0] << " -h" << endl;
 		return EXIT_FAILURE;
 	}
-
+	
 	//Parsing arguments to flags
 	int flagEnd = argc - 1;
 	for (int i = 1; i < argc -1; i++) //argc -1 so that the last argument will always be directly sent to the parser
@@ -60,15 +60,10 @@ int main(int argc, char **argv)
 	parse(flags, parserString);
 	/// **TODO Calculate**
 	/// **TODO output**
-	//cout << (number(10) + number(complex(100, 30))).toString() << endl;
 
-
-	cout << mathExpression::count << endl;
 	mathExpression *me = new Addition(new numberExpression(100), new Multiplication(new numberExpression(complex(3, 20)), new numberExpression(2)));
 	cout << me->calculate().toString() << endl;
-	cout << mathExpression::count << endl;
 	delete me;
-	cout << mathExpression::count << endl;
 	system("pause");
 	return EXIT_SUCCESS;
 }
