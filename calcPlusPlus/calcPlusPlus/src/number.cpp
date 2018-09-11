@@ -47,7 +47,7 @@ number operator*(const number& a, const number& b)
 
 number operator/(const number& a, const number& b)
 {
-	OPER(/ );
+	OPER(/);
 }
 
 string number::toString()

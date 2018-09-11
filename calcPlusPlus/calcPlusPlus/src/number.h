@@ -1,7 +1,6 @@
 #pragma once
 #include "complex.h"
 #include <string>
-
 //**TODO REWORK number Class completly (current Version is very Hacky ando not expandable)**
 class number
 {
@@ -9,6 +8,7 @@ private:
 	int *pint;
 	float *pfloat;
 	complex *pcomplex;
+
 public:
 	number() { pint = nullptr;  pfloat = nullptr; pcomplex = nullptr; }
 	number(int x) { pint = new int(x); pfloat = nullptr; pcomplex = nullptr; }

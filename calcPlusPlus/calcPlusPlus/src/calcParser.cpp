@@ -18,7 +18,7 @@ void parse(std::string flags, std::string unparsed) //Wrapper arround the recurs
 	memcpy(unparsedCstr, unparsed.c_str(), unparsed.length() + 1);
 	memcpy(flagsCstr, flags.c_str(), flags.length() + 1);
 
-	parseRec(unparsedCstr, flagsCstr, 0, unparsed.length());
+	parseRec(unparsedCstr, flagsCstr, 0, (uint32_t) unparsed.length());
 
 	//Cleanups
 	delete[] unparsedCstr;
